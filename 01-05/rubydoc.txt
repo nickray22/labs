@@ -1,0 +1,15 @@
+Method that Symbol has, but String does not:
+  #id2name: this method returns the name or string corresponding to the
+            symbol object that this method is called on
+
+Method that String has but Symbol does not:
+  #chr: this method returns a one-character string at the beginning of the 
+        string
+
+Array method #concat:
+  The concat method takes as an argument some other array object and returns
+  an array object. It is used to append the elements of the argument array
+  to the original array that the concat method is called upon.
+  An example would be if you had two arrays that with information that you
+  needed to combine and the order of these elements is not, at present, of 
+  much importance.

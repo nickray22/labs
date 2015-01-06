@@ -1,0 +1,3 @@
+Unix sort:
+
+I chose to read the manual for the sort command. The sort command sorts lines of text files. It writes to standard output, the concatenation of all files passed to it as an argument.  It also takes a number of options as arguments that specify certain actions to be taken on the sort, such as ignoring case. 
