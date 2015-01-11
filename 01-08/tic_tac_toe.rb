@@ -14,7 +14,7 @@ ___________.__         ___________               ___________
   Welcome to Tic-Tac-Toe!
 
   There are two boards displayed below, the board on the left represents the current state of the board in X's and O's,
-  while the board on the right lists the available numbers (0 - 9) where a player can place the corresponding X or O
+  while the board on the right lists the available numbers (1 - 9) where a player can place the corresponding X or O
   depending on the turn. To play, pick your spot and enter that number at the prompt.
 
   Good luck!                                                                         
