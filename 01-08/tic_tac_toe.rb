@@ -17,8 +17,7 @@ ___________.__         ___________               ___________
   while the board on the right lists the available numbers (1 - 9) where a player can place the corresponding X or O
   depending on the turn. To play, pick your spot and enter that number at the prompt.
 
-  Good luck!                                                                         
-  "
+  Good luck!"
 end
 
 def pick_player_details
