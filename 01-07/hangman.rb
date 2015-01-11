@@ -19,7 +19,6 @@ def greeting(count)
   puts 'Try to guess the word by entering letters!'
   puts
   puts "#{count} wrong answers and you will be strung up!"
-  # puts '6 wrong answers and you will be strung up!'
 end
 
 def game_over(answer, guessed)
