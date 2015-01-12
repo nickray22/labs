@@ -2,6 +2,14 @@ In this assignment, we'll implement a version of tic-tac-toe that we can play fr
 You should push what you have by Monday at 8am.
 **Incomplete work that is on time and later refined is preferred to late work that is complete and bug-free.**
 
+## FAQ (based on questions)
+
+* I would prefer you submit the script as one file and prompt the user
+  for different options (e.g. computer or human 2nd player, hard mode, etc.)
+
+* Please do not use Classes for this assignment. It is possible we will revisit it
+  once we have learned classes next week.
+
 ## Objectives
 
 ### Learning Objectives
@@ -41,9 +49,14 @@ It may either have two human players or a human player and a computer player tha
 
 The script should fulfill the *Easy Mode* requirements and support both a human **and** computer second player.
 
+## Hard Mode
+The AI should try to do something intelligent instead of choosing random empty spaces.
+Hardcoding "if the board is this, play this" is tractable, but there are several valid
+approaches.
+
 ## Nightmare Mode
 
-Add better AI (hardcoding "if the board is this, play this" is tractable, but there are other approaches, depending on how nightmarish you want to go).
+Make it so that the computer will *never* lose.
 
 ## Notes
 
