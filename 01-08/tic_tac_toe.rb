@@ -2,14 +2,6 @@
 
 def greeting
   `clear`
-puts"
-
-___________.__         ___________               ___________            
-\__    ___/|__| ____   \__    ___/____    ____   \__    ___/___   ____  
-  |    |   |  |/ ___\    |    |  \__  \ _/ ___\    |    | /  _ \_/ __ \ 
-  |    |   |  \  \___    |    |   / __ \\  \___    |    |(  <_> )  ___/ 
-  |____|   |__|\___  >   |____|  (____  /\___  >   |____| \____/ \___  >
-                   \/                 \/     \/                      \/ " 
   puts "
   Welcome to Tic-Tac-Toe!
 
@@ -82,8 +74,7 @@ def gameboard(state)
   #{current[3]} | #{current[4]} | #{current[5]}          #{moves[3]} | #{moves[4]} | #{moves[5]} 
   ---------          ---------
   #{current[6]} | #{current[7]} | #{current[8]}          #{moves[6]} | #{moves[7]} | #{moves[8]} 
-
-  "
+"
 end
 
 def easy_input(state, player_symbol, player_type)
