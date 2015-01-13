@@ -22,3 +22,5 @@ ruby_koans or Improving a previous assignment.
 4. Go into the fork on the command line and run `rake gen`.
 5. Pick three files (maybe arrays, iteration, and hashes) and run ruby about_xxx.rb
 6. Complete the koans!
+
+PROTIP: .gitignore has koans/* in it. You need to remove that line from gitignore to add your files!
