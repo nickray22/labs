@@ -1,4 +1,5 @@
 require 'Set'
+require 'pry'
 
 class Hangman
   
