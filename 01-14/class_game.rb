@@ -21,10 +21,10 @@ class Mage
     @name = name
     @weapon = weapon
     if @weapon.include?('shock')
-      @weapon_damage = 20 * level
+      @weapon_damage = 15 * level
       @damage_descriptor = 'electrocutes'
     elsif @weapon.include?('fire')
-      @weapon_damage = 50 * level
+      @weapon_damage = 20 * level
       @weapon_descriptor = 'torches'
     elsif @weapon.include?('ice')
       @weapon_damage = 10 * level
@@ -79,11 +79,11 @@ class Demon
 end
 
 class Conflict
-  attr_reader :hero, :villan
+  attr_reader :hero, :villain
   
   def initialize(hero, villain)
-    @hero = Mage.new(hero[0], hero[1], hero[2])
-    @villain = Demon.new(villain[0], villain[1])
+    @hero = hero
+    @villain = villain
   end
 
   def fight
@@ -91,8 +91,8 @@ class Conflict
     puts "#{@hero.player_name} Health: #{@hero.health}"
     puts "#{@villain.player_name} Health: #{@villain.health}"
     until (@hero.dead?) || (@villain.dead?)
-      turn = rand(2)
-      if turn == 0
+      turn = rand(1..2)
+      if turn == 1
         @hero.attack(@villain)
       else
         @villain.attack(@hero)
@@ -106,10 +106,12 @@ class Conflict
   end
 end
 
-hero = ['Nick', 5, 'fire staff']
-villain = ['Grand Demon', 3]
+hero = Mage.new "Nick", 5, 'ice staff'
+villain = Demon.new 'Grand Demon', 3
+
+binding.pry
 
 tourney = Conflict.new(hero, villain)
 tourney.fight
 
-binding.pry
+
