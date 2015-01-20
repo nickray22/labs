@@ -1,3 +1,5 @@
+# 1 v 1 arena game
+
 require 'pry'
 
 module Killable
