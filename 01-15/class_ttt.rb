@@ -1,8 +1,8 @@
 # require 'pry'
 
 def greeting
-    `clear`
-    puts "\nWelcome to Tic-Tac-Toe!\n\nThere are two boards displayed below, the board on the left represents the current state of the board in X's and O's,\nwhile the board on the right lists the available numbers (1 - 9) where a player can place the corresponding X or O\ndepending on the turn. To play, pick your spot and enter that number at the prompt.\n\nGood luck!\n\n"
+  `clear`
+  puts "\nWelcome to Tic-Tac-Toe!\n\nThere are two boards displayed below, the board on the left represents the current state of the board in X's and O's,\nwhile the board on the right lists the available numbers (1 - 9) where a player can place the corresponding X or O\ndepending on the turn. To play, pick your spot and enter that number at the prompt.\n\nGood luck!\n\n"
 end
 
 class HumanPlayer
@@ -24,7 +24,7 @@ class HumanPlayer
     end
     puts 'Enter your move:'
     input = gets.chomp
-    while true
+    loop do
       if (input.scan(/[a-zA-Z]+/).empty?) && (moves.include?(input.to_i))
         input = input.to_i
         break
@@ -69,7 +69,8 @@ class ComputerPlayer
 end
 
 class Board
-  attr_accessor :state, :moves, :x_win, :x_loss, :x_draw, :o_win, :o_loss, :o_draw, :player_details
+  attr_accessor :moves, :x_win, :x_loss, :x_draw, :o_win, :o_loss, :o_draw
+  attr_reader :state, :player_details
 
   def initialize
     @state = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
@@ -116,7 +117,7 @@ class Board
     puts
     puts 'Will player one be a human or the computer? (h or c):'
     player1_type = gets.chomp
-    while true
+    loop do
       if (player1_type.downcase == 'h') || (player1_type.downcase == 'c')
         @player_details['player1_type'] = player1_type.downcase
         break
@@ -131,13 +132,13 @@ class Board
     puts
     puts 'Will player one be the X or the O? (X or O):'
     player1_symbol = gets.chomp
-    while true
+    loop do
       if (player1_symbol.upcase == 'X') || (player1_symbol.upcase == 'O')
         @player_details['player1_symbol'] = player1_symbol.upcase
         break
       else
         puts 'Please enter a valid selection for player one (X or O):'
-        player2_symbol = gets.chomp
+        player1_symbol = gets.chomp
       end
     end
   end
@@ -146,7 +147,7 @@ class Board
     puts
     puts 'Will player two be a human or the computer? (h or c):'
     player2_type = gets.chomp
-    while true
+    loop do
       if (player2_type.downcase == 'h') || (player2_type.downcase == 'c')
         @player_details['player2_type'] = player2_type.downcase
         break
@@ -218,27 +219,27 @@ class Board
     @player_details
   end
 
-  def add_O_win
+  def add_o_win
     @o_win += 1
   end
 
-  def add_O_loss
+  def add_o_loss
     @o_loss += 1
   end
 
-  def add_O_draw
+  def add_o_draw
     @o_draw += 1
   end
 
-  def add_X_win
+  def add_x_win
     @x_win += 1
   end
 
-  def add_X_loss
+  def add_x_loss
     @x_loss += 1
   end
 
-  def add_X_draw
+  def add_x_draw
     @x_draw += 1
   end
 
@@ -263,7 +264,14 @@ class Game
   end
 
   def continue_game?(state)
-    winning_combinations = [[0,1,2], [3,4,5], [6,7,8], [0,4,8], [2,4,6], [0,3,6], [1,4,7], [2,5,8]]
+    winning_combinations = [[0, 1, 2],
+                            [3, 4, 5],
+                            [6, 7, 8],
+                            [0, 4, 8],
+                            [2, 4, 6],
+                            [0, 3, 6],
+                            [1, 4, 7],
+                            [2, 5, 8]]
     winning_combinations.each do |n|
       win_check = []
       n.each do |i|
@@ -275,12 +283,12 @@ class Game
         puts "'#{win_check.first}' Wins! Good Game"
         puts
         if win_check.first == 'X'
-          @boards.add_X_win
-          @boards.add_O_loss
+          @boards.add_x_win
+          @boards.add_o_loss
           @boards.scoreboard
         else
-          @boards.add_O_win
-          @boards.add_X_loss
+          @boards.add_o_win
+          @boards.add_x_loss
           @boards.scoreboard
         end
         return false
@@ -291,8 +299,8 @@ class Game
       puts
       puts 'This game has resulted in a tie. Thanks for playing.'
       puts
-      @boards.add_X_draw
-      @boards.add_O_draw
+      @boards.add_x_draw
+      @boards.add_o_draw
       @boards.scoreboard
       return false
     end
