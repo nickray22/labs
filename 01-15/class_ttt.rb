@@ -307,6 +307,19 @@ class Game
     true
   end
 
+  def play_again?
+    loop do
+      print 'Would you like to play again? [y/n]:'
+      result = gets.chomp.downcase
+      if result == 'y'
+        ttt = Game.new
+        ttt.play_game
+      else
+        exit
+      end
+    end
+  end
+
   def play_game
     if @player_details['player1_type'] == 'h'
       player1 = HumanPlayer.new
@@ -333,6 +346,7 @@ class Game
         count += 1
       end
     end
+    play_again? == true
   end
 end
 
